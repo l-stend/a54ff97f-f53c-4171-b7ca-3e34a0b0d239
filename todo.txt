@@ -1,0 +1,7 @@
+ 🔵 elimina file inutili creati da 'npx create react app'
+
+ 🔵 togli il loading state da cart slice se alla fine non serve
+
+ 🔴 ho tolto REACT STRICT MODE
+
+
