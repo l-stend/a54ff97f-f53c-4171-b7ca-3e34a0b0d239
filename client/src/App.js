@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import EventsContainer from './components/EventsContainer';
 import { getAllEvents } from './features/all-events/allEventsSlice';

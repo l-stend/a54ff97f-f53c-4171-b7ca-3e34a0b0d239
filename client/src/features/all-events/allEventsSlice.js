@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { toast } from 'react-toastify';
 import customFetch from '../../utils/axios';
+import moment from 'moment';
 
 const initialState = {
   isLoading: false,
-  allEvents: [],
+  eventsList: [],
 };
 
 export const getAllEvents = createAsyncThunk(
@@ -23,14 +24,22 @@ export const getAllEvents = createAsyncThunk(
 const allEventsSlice = createSlice({
   name: 'allEvents',
   initialState,
-  reducers: {},
+  reducers: {
+    removeFromList: (state, { payload }) => {
+      state.eventsList = state.eventsList.filter(
+        (item) => item._id !== payload
+      );
+    },
+  },
   extraReducers: {
     [getAllEvents.pending]: (state) => {
       state.isLoading = true;
     },
     [getAllEvents.fulfilled]: (state, { payload }) => {
       state.isLoading = false;
-      state.allEvents = payload;
+      state.eventsList = payload.sort(
+        (a, b) => moment(a.startTime) - moment(b.startTime)
+      );
     },
     [getAllEvents.rejected]: (state, { payload }) => {
       state.isLoading = false;
@@ -38,5 +47,7 @@ const allEventsSlice = createSlice({
     },
   },
 });
+
+export const { removeFromList } = allEventsSlice.actions;
 
 export default allEventsSlice.reducer;

@@ -2,6 +2,10 @@
 
  🔵 togli il loading state da cart slice se alla fine non serve
 
+ 🔵 capisci come gestire il numero mostrato sul carrello. se con length o con una voce in initial state
+
  🔴 ho tolto REACT STRICT MODE
+
+ 🔴 disinstala LODASH in caso non lo usi
 
 
