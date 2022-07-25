@@ -96,7 +96,7 @@ const EventCard = ({ event }) => {
           {event.title}
         </Typography>
       </Box>
-      <Divider />
+      <Divider sx={{ marginX: '.5em' }} />
       {/*//////// INFO /////////////*/}
       <Box
         sx={{
@@ -164,7 +164,9 @@ const EventCard = ({ event }) => {
             {event.artists.length === 0
               ? 'No list available'
               : event.artists.map((artist) => (
-                  <ListItem sx={{ fontSize: '15px' }}>{artist.name}</ListItem>
+                  <ListItem key={artist.id} sx={{ fontSize: '15px' }}>
+                    {artist.name}
+                  </ListItem>
                 ))}
           </List>
         </Box>

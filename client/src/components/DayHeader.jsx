@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import moment from 'moment';
 import EventCard from './EventCard';
 import List from '@mui/material/List';
 import ListSubheader from '@mui/material/ListSubheader';
@@ -24,7 +25,7 @@ const DayHeader = ({ day, subHeaders, eventsList }) => {
           onClick={() => setIsOpen(!isOpen)}
           sx={{ marginY: '1em' }}
         >
-          <ListItemText primary={day} />
+          <ListItemText primary={moment(day).format('ddd MMMM Do')} />
           {isOpen ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
       </ListSubheader>
