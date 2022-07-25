@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import List from '@mui/material/List';
 import ListSubheader from '@mui/material/ListSubheader';
 import Collapse from '@mui/material/Collapse';
@@ -9,9 +9,16 @@ import ExpandMore from '@mui/icons-material/ExpandMore';
 import ListItem from '@mui/material/ListItem';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+import { Container } from '@mui/material';
 
 const DayHeader = ({ day, subHeaders, eventsList }) => {
   const [isOpen, setIsOpen] = useState(true);
+
+  const dayEvents = eventsList.filter((event) => event.date === day);
+  console.log(dayEvents);
+
   return (
     <Box>
       <ListItemButton onClick={() => setIsOpen(!isOpen)}>
@@ -19,15 +26,17 @@ const DayHeader = ({ day, subHeaders, eventsList }) => {
         {isOpen ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={isOpen} timeout='auto' unmountOnExit>
-        <Grid container spacing={2}>
-          {eventsList
-            .filter((event) => event.date === day)
-            .map((event) => {
+        <Container>
+          <Grid container spacing={2}>
+            {dayEvents.map((event) => (
               <Grid item xs={4}>
-                {event.title}
-              </Grid>;
-            })}
-        </Grid>
+                <Paper>
+                  <Typography variant='h4'>suca</Typography>
+                </Paper>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
       </Collapse>
     </Box>
   );

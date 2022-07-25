@@ -36,6 +36,7 @@ const EventsContainer = () => {
         <List>
           {subHeaders?.map((day) => (
             <DayHeader
+              key={day}
               day={day}
               eventsList={eventsList}
               subHeaders={subHeaders}
