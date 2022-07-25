@@ -1,4 +1,4 @@
-import DayHeaders from './DayHeaders';
+import DayHeader from '../DayHeader';
 import EventsContainer from './EventsContainer';
 
-export { DayHeaders, EventsContainer };
+export { DayHeader, EventsContainer };

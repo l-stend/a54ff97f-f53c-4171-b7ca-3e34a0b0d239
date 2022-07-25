@@ -8,8 +8,9 @@ import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
 import ListItem from '@mui/material/ListItem';
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid';
 
-const DayHeaders = ({ day, subHeaders, eventsList }) => {
+const DayHeader = ({ day, subHeaders, eventsList }) => {
   const [isOpen, setIsOpen] = useState(true);
   return (
     <Box>
@@ -18,10 +19,18 @@ const DayHeaders = ({ day, subHeaders, eventsList }) => {
         {isOpen ? <ExpandLess /> : <ExpandMore />}
       </ListItemButton>
       <Collapse in={isOpen} timeout='auto' unmountOnExit>
-        lfaidhfpadifhadif
+        <Grid container spacing={2}>
+          {eventsList
+            .filter((event) => event.date === day)
+            .map((event) => {
+              <Grid item xs={4}>
+                {event.title}
+              </Grid>;
+            })}
+        </Grid>
       </Collapse>
     </Box>
   );
 };
 
-export default DayHeaders;
+export default DayHeader;

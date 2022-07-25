@@ -4,7 +4,7 @@ import { getAllEvents } from '../features/all-events/allEventsSlice';
 import { addToCart } from '../features/cart/cartSlice';
 import { removeFromList } from '../features/all-events/allEventsSlice';
 import _ from 'lodash';
-import DayHeaders from './DayHeaders';
+import DayHeader from './DayHeader';
 import { List } from '@mui/material';
 
 const EventsContainer = () => {
@@ -35,7 +35,7 @@ const EventsContainer = () => {
       <div className='events-list'>
         <List>
           {subHeaders?.map((day) => (
-            <DayHeaders
+            <DayHeader
               day={day}
               eventsList={eventsList}
               subHeaders={subHeaders}
