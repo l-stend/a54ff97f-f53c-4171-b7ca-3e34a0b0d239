@@ -1,5 +1,6 @@
 import React from 'react';
 import Chip from '@mui/material/Chip';
+import Tooltip from '@mui/material/Tooltip';
 
 const ParticipantsBadge = ({ attending }) => {
   const calculateBadgeClass = (participants) => {
@@ -19,11 +20,17 @@ const ParticipantsBadge = ({ attending }) => {
   return (
     <>
       {attending >= 100 && (
-        <Chip
-          label={calculateBadgeContent(attending)}
-          color='primary'
-          size='small'
-        />
+        <Tooltip
+          title={`${calculateBadgeContent(attending)} already attending`}
+          placement='right'
+          arrow
+        >
+          <Chip
+            label={calculateBadgeContent(attending)}
+            color='primary'
+            size='small'
+          />
+        </Tooltip>
       )}
     </>
   );
