@@ -2,11 +2,13 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../features/cart/cartSlice';
 import { removeFromList } from '../features/all-events/allEventsSlice';
+import ParticipantsBadge from './ParticipantsBadge';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
+import EventsContainer from './EventsContainer';
 
 const EventCard = ({ event }) => {
   const dispatch = useDispatch();
@@ -27,6 +29,7 @@ const EventCard = ({ event }) => {
       }}
     >
       <Box>
+        <ParticipantsBadge attending={event.attending} />
         <Button
           sx={{ borderRadius: '50%' }}
           onClick={() => addToCartHandler(event._id)}
