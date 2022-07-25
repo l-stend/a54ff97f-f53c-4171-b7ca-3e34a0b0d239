@@ -14,9 +14,13 @@ import Tooltip from '@mui/material/Tooltip';
 import FmdGoodIcon from '@mui/icons-material/FmdGoodOutlined';
 import Link from '@mui/material/Link';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
-import ExpandCircleDownRoundedIcon from '@mui/icons-material/ExpandCircleDownRounded';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import Divider from '@mui/material/Divider';
 import Collapse from '@mui/material/Collapse';
+import List from '@mui/material/List';
+import ListSubheader from '@mui/material/ListSubheader';
+import ListItem from '@mui/material/ListItem';
 
 const EventCard = ({ event }) => {
   const [isExpanded, setIsExpanded] = useState(false);
@@ -128,6 +132,7 @@ const EventCard = ({ event }) => {
           {moment(event.startTime).format('LT')}
         </Typography>
       </Box>
+      {/*//////// COLLAPSE /////////////*/}
       <Box
         sx={{
           display: 'flex',
@@ -137,22 +142,49 @@ const EventCard = ({ event }) => {
         }}
       >
         {!isExpanded && (
-          <ExpandCircleDownRoundedIcon
-            fontSize='medium'
-            onClick={() => setIsExpanded(true)}
-          />
+          <Tooltip title='Show artists' placement='right' arrow>
+            <ExpandMoreIcon
+              fontSize='medium'
+              onClick={() => setIsExpanded(true)}
+            />
+          </Tooltip>
         )}
       </Box>
-      {/*//////// COLLAPSE /////////////*/}
       <Collapse in={isExpanded} timeout='auto' unmountOnExit>
-        <Typography
-          component='subtitle2'
-          variant='caption'
-          sx={{ fontSize: '12px' }}
+        <Box
+          sx={{
+            paddingX: '1em',
+            display: 'flex',
+            flexDirection: 'colum',
+            // justifyContent: 'center',
+            alignItems: 'center',
+          }}
         >
-          <AccessTimeFilledIcon fontSize='small' sx={{ height: '12px' }} />{' '}
-          {moment(event.startTime).format('LT')}
-        </Typography>
+          <List subheader={<ListSubheader>Artists</ListSubheader>}>
+            {event.artists.length === 0
+              ? 'No list available'
+              : event.artists.map((artist) => (
+                  <ListItem sx={{ fontSize: '15px' }}>{artist.name}</ListItem>
+                ))}
+          </List>
+        </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'center',
+            paddingY: '.5em',
+          }}
+        >
+          {isExpanded && (
+            <Tooltip title='Hide artists' placement='right' arrow>
+              <ExpandLessIcon
+                fontSize='medium'
+                onClick={() => setIsExpanded(false)}
+              />
+            </Tooltip>
+          )}
+        </Box>
       </Collapse>
     </Paper>
   );
