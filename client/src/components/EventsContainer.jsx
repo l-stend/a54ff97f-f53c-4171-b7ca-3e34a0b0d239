@@ -4,6 +4,8 @@ import { getAllEvents } from '../features/all-events/allEventsSlice';
 import { addToCart } from '../features/cart/cartSlice';
 import { removeFromList } from '../features/all-events/allEventsSlice';
 import _ from 'lodash';
+import DayHeaders from './DayHeaders';
+import { List } from '@mui/material';
 
 const EventsContainer = () => {
   const { eventsList, isLoading } = useSelector((store) => store.allEvents);
@@ -31,11 +33,15 @@ const EventsContainer = () => {
   return (
     <section>
       <div className='events-list'>
-        {subHeaders?.map((day) => (
-          <div key={day}>
-            <p>{day}</p>
-          </div>
-        ))}
+        <List>
+          {subHeaders?.map((day) => (
+            <DayHeaders
+              day={day}
+              eventsList={eventsList}
+              subHeaders={subHeaders}
+            />
+          ))}
+        </List>
         {eventsList?.map((event) => (
           <div key={event._id} onClick={() => addToCartHandler(event)}>
             <p>{event.title}</p>
