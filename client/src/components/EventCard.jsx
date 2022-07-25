@@ -34,15 +34,24 @@ const EventCard = ({ event }) => {
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'space-between',
+          alignItems: 'center',
+          height: '4vh',
+          padding: '.3em',
         }}
       >
         <ParticipantsBadge attending={event.attending} />
         <Tooltip title='Add to cart' placement='left' arrow>
           <Button
-            sx={{ borderRadius: '50%' }}
+            sx={{ borderRadius: '25px', height: '3vh', width: '4vw' }}
+            variant='outlined'
+            size='small'
             onClick={() => addToCartHandler(event._id)}
           >
-            <AddCircleRoundedIcon fontSize='medium' />
+            Add{' '}
+            <AddCircleRoundedIcon
+              fontSize='small'
+              sx={{ paddingLeft: '0.2em' }}
+            />
           </Button>
         </Tooltip>
       </Box>

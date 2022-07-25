@@ -19,7 +19,7 @@ const ParticipantsBadge = ({ attending }) => {
 
   return (
     <>
-      {attending >= 100 && (
+      {attending >= 100 ? (
         <Tooltip
           title={`${calculateBadgeContent(attending)} already attending`}
           placement='right'
@@ -29,8 +29,17 @@ const ParticipantsBadge = ({ attending }) => {
             label={calculateBadgeContent(attending)}
             color='primary'
             size='small'
+            sx={{ height: '3vh', width: '4vw' }}
           />
         </Tooltip>
+      ) : (
+        <Chip
+          label={calculateBadgeContent(attending)}
+          color='primary'
+          variant='outlined'
+          size='small'
+          sx={{ height: '3vh', width: '4vw' }}
+        />
       )}
     </>
   );
