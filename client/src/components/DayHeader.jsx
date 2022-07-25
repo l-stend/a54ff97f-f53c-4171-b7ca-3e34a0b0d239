@@ -16,25 +16,32 @@ import { Container } from '@mui/material';
 const DayHeader = ({ day, subHeaders, eventsList }) => {
   const [isOpen, setIsOpen] = useState(true);
 
-  const dayEvents = eventsList.filter((event) => event.date === day);
-  console.log(dayEvents);
+  // const dayEvents = eventsList.filter((event) => event.date === day);
+  // console.log(dayEvents);
 
   return (
     <Box>
-      <ListItemButton onClick={() => setIsOpen(!isOpen)}>
-        <ListItemText primary={day} />
-        {isOpen ? <ExpandLess /> : <ExpandMore />}
-      </ListItemButton>
+      <ListSubheader disableSticky={false}>
+        <ListItemButton
+          onClick={() => setIsOpen(!isOpen)}
+          sx={{ marginY: '1em' }}
+        >
+          <ListItemText primary={day} />
+          {isOpen ? <ExpandLess /> : <ExpandMore />}
+        </ListItemButton>
+      </ListSubheader>
       <Collapse in={isOpen} timeout='auto' unmountOnExit>
         <Container>
           <Grid container spacing={2}>
-            {dayEvents.map((event) => (
-              <Grid item xs={4}>
-                <Paper>
-                  <Typography variant='h4'>suca</Typography>
-                </Paper>
-              </Grid>
-            ))}
+            {eventsList
+              .filter((event) => event.date === day)
+              .map((event) => (
+                <Grid item xs={3}>
+                  <Paper>
+                    <Typography variant='h4'>suca</Typography>
+                  </Paper>
+                </Grid>
+              ))}
           </Grid>
         </Container>
       </Collapse>
