@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../features/cart/cartSlice';
 import { removeFromList } from '../features/all-events/allEventsSlice';
@@ -10,8 +11,15 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import AddCircleRoundedIcon from '@mui/icons-material/AddCircleRounded';
 import Tooltip from '@mui/material/Tooltip';
+import FmdGoodIcon from '@mui/icons-material/FmdGoodOutlined';
+import Link from '@mui/material/Link';
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import ExpandCircleDownRoundedIcon from '@mui/icons-material/ExpandCircleDownRounded';
+import Divider from '@mui/material/Divider';
+import Collapse from '@mui/material/Collapse';
 
 const EventCard = ({ event }) => {
+  const [isExpanded, setIsExpanded] = useState(false);
   const dispatch = useDispatch();
 
   const addToCartHandler = (item) => {
@@ -29,6 +37,7 @@ const EventCard = ({ event }) => {
         justifyContent: 'center',
       }}
     >
+      {/*//////// UPPER PART /////////////*/}
       <Box
         sx={{
           display: 'flex',
@@ -55,6 +64,7 @@ const EventCard = ({ event }) => {
           </Button>
         </Tooltip>
       </Box>
+      {/*//////// IMAGE /////////////*/}
       <img
         src={event.flyerFront}
         alt="Event's poster"
@@ -66,11 +76,11 @@ const EventCard = ({ event }) => {
           objectFit: 'fill',
         }}
       />
+      {/*//////// TITLE /////////////*/}
       <Box
         sx={{
           width: '90%',
           height: '8vh',
-          // paddingX: '5%',
           marginX: '5%',
           display: 'flex',
           flexDirection: 'row',
@@ -78,24 +88,72 @@ const EventCard = ({ event }) => {
           alignItems: 'baseline',
         }}
       >
-        <Typography
-          variant='button-text'
-          component='h5'
-          sx={
-            {
-              // display: '-webkit-box',
-              // webkitLineClamp: '2',
-              // webkitBoxOrient: 'vertical',
-              // textOverflow: 'ellipsis',
-              // whiteSpace: 'nowrap',
-              // overflow: 'hidden',
-              // width: '100%',
-            }
-          }
-        >
+        <Typography variant='button-text' component='h5'>
           {event.title}
         </Typography>
       </Box>
+      <Divider />
+      {/*//////// INFO /////////////*/}
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          alignItems: 'baseline',
+          paddingY: '1em',
+        }}
+      >
+        <Link
+          href={event.venue.direction}
+          underline='hover'
+          sx={{
+            fontSize: '12px',
+            width: '40%',
+            textOverflow: 'ellipsis',
+            overflow: 'hidden',
+            whiteSpace: 'nowrap',
+          }}
+        >
+          <Typography component='subtitle2' variant='caption'>
+            <FmdGoodIcon fontSize='small' sx={{ height: '12px' }} />{' '}
+            {event.venue.name}
+          </Typography>
+        </Link>
+        <Typography
+          component='subtitle2'
+          variant='caption'
+          sx={{ fontSize: '12px' }}
+        >
+          <AccessTimeFilledIcon fontSize='small' sx={{ height: '12px' }} />{' '}
+          {moment(event.startTime).format('LT')}
+        </Typography>
+      </Box>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          paddingY: '.5em',
+        }}
+      >
+        {!isExpanded && (
+          <ExpandCircleDownRoundedIcon
+            fontSize='medium'
+            onClick={() => setIsExpanded(true)}
+          />
+        )}
+      </Box>
+      {/*//////// COLLAPSE /////////////*/}
+      <Collapse in={isExpanded} timeout='auto' unmountOnExit>
+        <Typography
+          component='subtitle2'
+          variant='caption'
+          sx={{ fontSize: '12px' }}
+        >
+          <AccessTimeFilledIcon fontSize='small' sx={{ height: '12px' }} />{' '}
+          {moment(event.startTime).format('LT')}
+        </Typography>
+      </Collapse>
     </Paper>
   );
 };
