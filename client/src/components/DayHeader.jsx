@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import EventCard from './EventCard';
 import List from '@mui/material/List';
 import ListSubheader from '@mui/material/ListSubheader';
 import Collapse from '@mui/material/Collapse';
@@ -11,13 +12,10 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-import { Container } from '@mui/material';
+import Container from '@mui/material/Container';
 
 const DayHeader = ({ day, subHeaders, eventsList }) => {
   const [isOpen, setIsOpen] = useState(true);
-
-  // const dayEvents = eventsList.filter((event) => event.date === day);
-  // console.log(dayEvents);
 
   return (
     <Box>
@@ -37,9 +35,7 @@ const DayHeader = ({ day, subHeaders, eventsList }) => {
               .filter((event) => event.date === day)
               .map((event) => (
                 <Grid item xs={3}>
-                  <Paper>
-                    <Typography variant='h4'>suca</Typography>
-                  </Paper>
+                  <EventCard event={event} />
                 </Grid>
               ))}
           </Grid>
