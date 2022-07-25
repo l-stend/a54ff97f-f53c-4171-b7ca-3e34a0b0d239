@@ -5,7 +5,14 @@ import Typography from '@mui/material/Typography';
 
 const EventCard = ({ event }) => {
   return (
-    <Paper elevation={10}>
+    <Paper
+      elevation={10}
+      sx={{
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+      }}
+    >
       <img
         src={event.flyerFront}
         alt="Event's poster"
@@ -17,8 +24,33 @@ const EventCard = ({ event }) => {
           objectFit: 'fill',
         }}
       />
-      <Box sx={{ height: '10vh' }}>
-        <Typography variant='h6' component='h5'>
+      <Box
+        sx={{
+          width: '90%',
+          height: '8vh',
+          // paddingX: '5%',
+          marginX: '5%',
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+          alignItems: 'baseline',
+        }}
+      >
+        <Typography
+          variant='button-text'
+          component='h5'
+          sx={
+            {
+              // display: '-webkit-box',
+              // webkitLineClamp: '2',
+              // webkitBoxOrient: 'vertical',
+              // textOverflow: 'ellipsis',
+              // whiteSpace: 'nowrap',
+              // overflow: 'hidden',
+              // width: '100%',
+            }
+          }
+        >
           {event.title}
         </Typography>
       </Box>
