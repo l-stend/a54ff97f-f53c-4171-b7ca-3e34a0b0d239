@@ -5,15 +5,20 @@ import Typography from '@mui/material/Typography';
 
 const EventCard = ({ event }) => {
   return (
-    <Paper elevation={3}>
+    <Paper elevation={10}>
       <img
         src={event.flyerFront}
         alt="Event's poster"
-        height='20vh'
-        width='20vw'
+        style={{
+          width: '96%',
+          height: '45vh',
+          margin: '2%',
+          borderRadius: '3px',
+          objectFit: 'fill',
+        }}
       />
-      <Box>
-        <Typography variant='h5' component='h4'>
+      <Box sx={{ height: '10vh' }}>
+        <Typography variant='h6' component='h5'>
           {event.title}
         </Typography>
       </Box>
