@@ -1,7 +1,9 @@
 import './App.css';
+import axios from 'axios';
+import { useDispatch, useSelector } from 'react-redux';
 import EventsContainer from './components/EventsContainer';
 import { getAllEvents } from './features/all-events/allEventsSlice';
-import axios from 'axios';
+import { switchTheme } from './features/theme/themeSlice';
 import { useEffect, useState } from 'react';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -12,9 +14,12 @@ import { darkTheme, lightTheme } from './utils/themes';
 import Box from '@mui/material/Box';
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const { darkMode } = useSelector((store) => store.theme);
+  const dispatch = useDispatch();
+  // const [darkMode, setDarkMode] = useState(false);
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+      <button onClick={() => dispatch(switchTheme())}> theme test</button>
       <CssBaseline />
       <Box>
         <EventsContainer />
