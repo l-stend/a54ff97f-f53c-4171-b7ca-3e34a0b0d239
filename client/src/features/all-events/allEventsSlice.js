@@ -30,6 +30,11 @@ const allEventsSlice = createSlice({
         (item) => item._id !== payload
       );
     },
+    filterList: (state, { payload }) => {
+      state.eventsList = state.eventsList.filter((item) =>
+        item.title.toLowerCase().includes(payload.toLowerCase())
+      );
+    },
   },
   extraReducers: {
     [getAllEvents.pending]: (state) => {
@@ -48,6 +53,6 @@ const allEventsSlice = createSlice({
   },
 });
 
-export const { removeFromList } = allEventsSlice.actions;
+export const { removeFromList, filterList } = allEventsSlice.actions;
 
 export default allEventsSlice.reducer;

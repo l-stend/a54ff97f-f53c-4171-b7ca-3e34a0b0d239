@@ -1,6 +1,7 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { switchTheme } from '../features/theme/themeSlice';
+import { filterList } from '../features/all-events/allEventsSlice';
 import AppBar from '@mui/material/AppBar';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
@@ -21,9 +22,7 @@ const Navbar = () => {
         darkMode
           ? {
               backgroundColor: 'background.paper',
-              // border: 'solid 1px',
               borderRadius: '5px',
-              // borderColor: 'primary.main',
               display: 'flex',
               flexDirection: 'row',
               justifyContent: 'space-around',
@@ -78,8 +77,7 @@ const Navbar = () => {
             {event.title}
           </Box>
         )}
-        // value={value}
-        onInputChange={(e) => console.log(e.target.value)}
+        onInputChange={(e) => dispatch(filterList(e.target.value))}
       />
       <Typography component='h3' variant='h3' color={darkMode && 'primary'}>
         Suca
