@@ -19,8 +19,9 @@
  🔴 vedi dove aggiungere commenti
 
  🔴 togli lista di sotto 
-  
- 🔴🔴 cambia tutti gli sx con style??????
 
+ 🔴 i bottoni della navbar cambiano forma su schermo mobile 
+  
+ 
 
 

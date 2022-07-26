@@ -10,10 +10,14 @@ import Typography from '@mui/material/Typography';
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 import Brightness2OutlinedIcon from '@mui/icons-material/Brightness2Outlined';
 import Autocomplete from '@mui/material/Autocomplete';
+import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
+import Badge from '@mui/material/Badge';
 
 const Navbar = () => {
   const { darkMode } = useSelector((store) => store.theme);
   const { eventsList } = useSelector((store) => store.allEvents);
+  const { cartItems } = useSelector((store) => store.cart);
+
   const dispatch = useDispatch();
 
   return (
@@ -37,8 +41,8 @@ const Navbar = () => {
             }
       }
     >
+      {/* //////// THEME BUTTON //////// */}
       <IconButton
-        // color='primary'
         onClick={() => dispatch(switchTheme())}
         sx={
           darkMode
@@ -64,6 +68,7 @@ const Navbar = () => {
           <Brightness2OutlinedIcon fontSize='medium' />
         )}
       </IconButton>
+      {/* //////// SEARCH BAR //////// */}
       <Autocomplete
         noOptions
         sx={{ width: '40vw' }}
@@ -79,9 +84,31 @@ const Navbar = () => {
         )}
         onInputChange={(e) => dispatch(filterList(e.target.value))}
       />
-      <Typography component='h3' variant='h3' color={darkMode && 'primary'}>
-        Suca
-      </Typography>
+      {/* //////// CART BUTTON //////// */}
+      <Badge color='primary' badgeContent={cartItems.length} overlap='circular'>
+        <IconButton
+          onClick={() => dispatch(switchTheme())}
+          sx={
+            darkMode
+              ? {
+                  color: 'primary.main',
+                  border: 'solid 1px',
+                  borderRadius: '100px',
+                  borderColor: 'primary.main',
+                  width: '3vw',
+                }
+              : {
+                  color: '#ffffff',
+                  border: 'solid 1px',
+                  borderRadius: '100px',
+                  borderColor: '#ffffff',
+                  width: '3vw',
+                }
+          }
+        >
+          <ShoppingCartCheckoutIcon />
+        </IconButton>
+      </Badge>
     </AppBar>
   );
 };
