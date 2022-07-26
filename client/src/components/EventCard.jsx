@@ -58,7 +58,7 @@ const EventCard = ({ event }) => {
             sx={{ borderRadius: '25px', height: '3vh', width: '4vw' }}
             variant='outlined'
             size='small'
-            onClick={() => addToCartHandler(event._id)}
+            onClick={() => addToCartHandler(event)}
           >
             Add{' '}
             <AddCircleRoundedIcon

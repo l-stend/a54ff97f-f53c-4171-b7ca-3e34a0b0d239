@@ -10,5 +10,9 @@
 
  🔴 contorolla tutti gli import
 
+ 🔴 contorolla la console
+ 
+ 🔴🔴 cambia tutti gli sx con style??????
+
 
 

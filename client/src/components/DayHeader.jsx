@@ -35,7 +35,7 @@ const DayHeader = ({ day, subHeaders, eventsList }) => {
             {eventsList
               .filter((event) => event.date === day)
               .map((event) => (
-                <Grid item xs={3}>
+                <Grid key={event._id} item xs={10} md={4} lg={3}>
                   <EventCard event={event} />
                 </Grid>
               ))}
