@@ -1,7 +1,8 @@
 import './App.css';
 import axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
-import EventsContainer from './components/EventsContainer';
+import { Navbar, EventsContainer } from './components';
+// import EventsContainer from './components/EventsContainer';
 import { getAllEvents } from './features/all-events/allEventsSlice';
 import { switchTheme } from './features/theme/themeSlice';
 import { useEffect, useState } from 'react';
@@ -22,6 +23,7 @@ function App() {
       <button onClick={() => dispatch(switchTheme())}> theme test</button>
       <CssBaseline />
       <Box>
+        <Navbar />
         <EventsContainer />
         <ToastContainer
           position='bottom-center'

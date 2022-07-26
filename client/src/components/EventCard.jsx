@@ -39,6 +39,7 @@ const EventCard = ({ event }) => {
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',
+        marginBottom: '2em',
       }}
     >
       {/*//////// UPPER PART /////////////*/}

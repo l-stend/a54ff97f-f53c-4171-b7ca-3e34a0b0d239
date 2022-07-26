@@ -20,17 +20,31 @@ const DayHeader = ({ day, subHeaders, eventsList }) => {
 
   return (
     <Box>
-      <ListSubheader disableSticky={false}>
+      <ListSubheader
+        disableSticky={false}
+        sx={{
+          paddingTop: '5vh',
+          marginBottom: '2em',
+          backgroundColor: 'background.default',
+        }}
+      >
         <ListItemButton
           onClick={() => setIsOpen(!isOpen)}
-          sx={{ marginY: '1em' }}
+          sx={{
+            marginY: '1em',
+            backgroundColor: 'background.paper',
+            border: '1px solid',
+            borderColor: 'primary.main',
+            opacity: '.7',
+            borderRadius: '5px',
+          }}
         >
           <ListItemText primary={moment(day).format('ddd MMMM Do')} />
           {isOpen ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
       </ListSubheader>
       <Collapse in={isOpen} timeout='auto' unmountOnExit>
-        <Container>
+        <Container sx={{ width: '95vw' }}>
           <Grid container spacing={2}>
             {eventsList
               .filter((event) => event.date === day)
