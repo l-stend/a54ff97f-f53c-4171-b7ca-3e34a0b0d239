@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { switchTheme } from '../features/theme/themeSlice';
 import { filterList } from '../features/all-events/allEventsSlice';
@@ -12,11 +12,13 @@ import Brightness2OutlinedIcon from '@mui/icons-material/Brightness2Outlined';
 import Autocomplete from '@mui/material/Autocomplete';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import Badge from '@mui/material/Badge';
+import CartDrawer from './CartDrawer';
 
 const Navbar = () => {
   const { darkMode } = useSelector((store) => store.theme);
   const { eventsList } = useSelector((store) => store.allEvents);
   const { cartItems } = useSelector((store) => store.cart);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -31,6 +33,7 @@ const Navbar = () => {
               flexDirection: 'row',
               justifyContent: 'space-around',
               alignItems: 'center',
+              paddingY: '.7vh',
             }
           : {
               borderRadius: '5px',
@@ -38,6 +41,7 @@ const Navbar = () => {
               flexDirection: 'row',
               justifyContent: 'space-around',
               alignItems: 'center',
+              paddingY: '.7vh',
             }
       }
     >
@@ -70,7 +74,6 @@ const Navbar = () => {
       </IconButton>
       {/* //////// SEARCH BAR //////// */}
       <Autocomplete
-        noOptions
         sx={{ width: '40vw' }}
         renderInput={(params) => (
           <TextField {...params} label='Search your event' />
@@ -85,7 +88,7 @@ const Navbar = () => {
         onInputChange={(e) => dispatch(filterList(e.target.value))}
       />
       {/* //////// CART BUTTON //////// */}
-      <Badge color='primary' badgeContent={cartItems.length} overlap='circular'>
+      <Badge color='primary' overlap='circular' badgeContent={cartItems.length}>
         <IconButton
           onClick={() => dispatch(switchTheme())}
           sx={
@@ -109,6 +112,7 @@ const Navbar = () => {
           <ShoppingCartCheckoutIcon />
         </IconButton>
       </Badge>
+      <CartDrawer />
     </AppBar>
   );
 };

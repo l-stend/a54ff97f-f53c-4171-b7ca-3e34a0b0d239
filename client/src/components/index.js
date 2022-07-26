@@ -3,5 +3,13 @@ import EventsContainer from './EventsContainer';
 import EventCard from './EventCard';
 import ParticipantsBadge from './ParticipantsBadge';
 import Navbar from './Navbar';
+import CartDrawer from './CartDrawer';
 
-export { DayHeader, EventsContainer, EventCard, ParticipantsBadge, Navbar };
+export {
+  DayHeader,
+  EventsContainer,
+  EventCard,
+  ParticipantsBadge,
+  Navbar,
+  CartDrawer,
+};

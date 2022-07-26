@@ -20,7 +20,9 @@
 
  🔴 togli lista di sotto 
 
- 🔴 i bottoni della navbar cambiano forma su schermo mobile 
+ 🔴 i bottoni della navbar cambiano forma su schermo mobile
+  
+ 🔴 cancella logica inutile badge partecipanti 
   
  
 

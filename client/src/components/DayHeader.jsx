@@ -37,6 +37,7 @@ const DayHeader = ({ day, subHeaders, eventsList }) => {
             borderColor: 'primary.main',
             opacity: '.7',
             borderRadius: '5px',
+            paddingY: '2vh',
           }}
         >
           <ListItemText primary={moment(day).format('ddd MMMM Do')} />
