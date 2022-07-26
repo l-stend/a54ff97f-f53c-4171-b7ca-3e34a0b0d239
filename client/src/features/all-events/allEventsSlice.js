@@ -6,6 +6,7 @@ import moment from 'moment';
 const initialState = {
   isLoading: false,
   eventsList: [],
+  backUpList: [],
 };
 
 export const getAllEvents = createAsyncThunk(
@@ -31,6 +32,7 @@ const allEventsSlice = createSlice({
       );
     },
     filterList: (state, { payload }) => {
+      state.eventsList = state.backUpList;
       state.eventsList = state.eventsList.filter((item) =>
         item.title.toLowerCase().includes(payload.toLowerCase())
       );
@@ -45,6 +47,7 @@ const allEventsSlice = createSlice({
       state.eventsList = payload.sort(
         (a, b) => moment(a.startTime) - moment(b.startTime)
       );
+      state.backUpList = state.eventsList;
     },
     [getAllEvents.rejected]: (state, { payload }) => {
       state.isLoading = false;

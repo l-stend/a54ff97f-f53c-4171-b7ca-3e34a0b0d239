@@ -33,23 +33,16 @@ const EventsContainer = () => {
 
   return (
     <Box>
-      <div className='events-list'>
-        <List>
-          {subHeaders?.map((day) => (
-            <DayHeader
-              key={day}
-              day={day}
-              eventsList={eventsList}
-              subHeaders={subHeaders}
-            />
-          ))}
-        </List>
-        {eventsList?.map((event) => (
-          <div key={event._id} onClick={() => addToCartHandler(event)}>
-            <p>{event.title}</p>
-          </div>
+      <List>
+        {subHeaders?.map((day) => (
+          <DayHeader
+            key={day}
+            day={day}
+            eventsList={eventsList}
+            subHeaders={subHeaders}
+          />
         ))}
-      </div>
+      </List>
     </Box>
   );
 };
