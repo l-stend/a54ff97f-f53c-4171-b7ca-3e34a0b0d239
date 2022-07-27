@@ -1,5 +1,6 @@
 import React from 'react';
 import moment from 'moment';
+import { useStyles } from '../utils/classes';
 import { useDispatch } from 'react-redux';
 import { putBackToList } from '../features/all-events/allEventsSlice';
 import { removeFromCart } from '../features/cart/cartSlice';
@@ -15,36 +16,6 @@ import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import IconButton from '@mui/material/IconButton';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import Tooltip from '@mui/material/Tooltip';
-import { makeStyles } from '@material-ui/core';
-
-const useStyles = makeStyles((theme) => ({
-  smallCard: {
-    width: '38vw',
-    [theme.breakpoints.down('md')]: {
-      width: '100vw',
-    },
-    [theme.breakpoints.up('lg')]: {
-      width: '48vw',
-    },
-    [theme.breakpoints.up('md')]: {
-      width: '38vw',
-    },
-  },
-
-  smallCardImage: {
-    maxWidth: '25vh',
-    [theme.breakpoints.only('xs')]: {
-      maxWidth: '15vh',
-      flex: '3',
-    },
-    // [theme.breakpoints.up('lg')]: {
-    //   maxWidth: '10vh',
-    // },
-    // [theme.breakpoints.up('md')]: {
-    //   maxWidth: '10vh',
-    // },
-  },
-}));
 
 const CartCard = ({ event }) => {
   const dispatch = useDispatch();
@@ -63,7 +34,6 @@ const CartCard = ({ event }) => {
         flexDirection: 'row',
         alignItems: 'center',
         height: '20vh',
-        // width: '38vw',
         marginY: '1.5vh',
         marginX: '.5vw',
         backgroundColor: 'background.default',
@@ -76,7 +46,6 @@ const CartCard = ({ event }) => {
         height='100%'
         image={event.flyerFront}
         alt='Poster of the event'
-        // sx={{ flex: '3', maxWidth: '10vw' }}
       />
 
       <CardContent
