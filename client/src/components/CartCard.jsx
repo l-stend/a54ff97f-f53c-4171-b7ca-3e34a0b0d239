@@ -9,13 +9,22 @@ import Box from '@mui/material/Box';
 
 const CartCard = ({ event }) => {
   return (
-    <Card sx={{ display: 'flex', flexDirection: 'row', alignItems: 'center' }}>
+    <Card
+      sx={{
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        height: '20vh',
+        width: '38vw',
+      }}
+    >
       <CardMedia
         component='img'
-        height='15vh'
-        width='48vw'
+        height='100%'
+        width='18vw'
         image={event.flyerFront}
         alt='Poster of the event'
+        sx
       />
       <Box
         sx={{
