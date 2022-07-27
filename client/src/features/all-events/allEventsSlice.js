@@ -37,6 +37,9 @@ const allEventsSlice = createSlice({
         item.title.toLowerCase().includes(payload.toLowerCase())
       );
     },
+    restoreList: (state) => {
+      state.eventsList = state.backUpList;
+    },
   },
   extraReducers: {
     [getAllEvents.pending]: (state) => {
@@ -56,6 +59,7 @@ const allEventsSlice = createSlice({
   },
 });
 
-export const { removeFromList, filterList } = allEventsSlice.actions;
+export const { removeFromList, filterList, restoreList } =
+  allEventsSlice.actions;
 
 export default allEventsSlice.reducer;

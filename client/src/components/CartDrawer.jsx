@@ -1,11 +1,13 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { toggleDrawer } from '../features/cart/cartDrawerSlice';
+import { clearCart } from '../features/cart/cartSlice';
+import { restoreList } from '../features/all-events/allEventsSlice';
 import CartCard from './CartCard';
 import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { useDispatch, useSelector } from 'react-redux';
-import { toggleDrawer } from '../features/cart/cartDrawerSlice';
 import Typography from '@mui/material/Typography';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import IconButton from '@mui/material/IconButton';
@@ -16,6 +18,12 @@ const CartDrawer = () => {
   const { isDrawerOpen } = useSelector((store) => store.cartDrawer);
   const { cartItems } = useSelector((store) => store.cart);
   const dispatch = useDispatch();
+
+  const handleClearCart = () => {
+    dispatch(clearCart());
+    dispatch(restoreList());
+    dispatch(toggleDrawer());
+  };
 
   return (
     <Drawer
@@ -64,7 +72,12 @@ const CartDrawer = () => {
           justifyContent: 'center',
         }}
       >
-        <Button size='small' variant='outlined' sx={{ border: 'solid 2px' }}>
+        <Button
+          onClick={() => handleClearCart()}
+          size='small'
+          variant='outlined'
+          sx={{ border: 'solid 2px' }}
+        >
           Clear Cart
         </Button>
       </Box>
