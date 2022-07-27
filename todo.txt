@@ -29,6 +29,8 @@
  🔴 se il dayheader e vuoto fallo sparire
 
  🔴 prova a rendere il drawer responsible
+
+ 🔴 aggiungi ID a tutti i box
   
  
 

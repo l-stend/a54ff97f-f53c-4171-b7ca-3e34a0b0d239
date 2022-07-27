@@ -11,6 +11,7 @@ import Link from '@mui/material/Link';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 import IconButton from '@mui/material/IconButton';
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import Tooltip from '@mui/material/Tooltip';
 
 const CartCard = ({ event }) => {
   return (
@@ -23,6 +24,7 @@ const CartCard = ({ event }) => {
         width: '38vw',
         marginY: '1.5vh',
         marginX: '.5vw',
+        backgroundColor: 'background.default',
       }}
     >
       <CardMedia
@@ -88,9 +90,11 @@ const CartCard = ({ event }) => {
 
       <Box sx={{ flex: '1' }}>
         <CardActions>
-          <IconButton size='medium'>
-            <HighlightOffIcon fontSize='large' color='primary' />
-          </IconButton>
+          <Tooltip title='Remove from cart' placement='bottom' arrow>
+            <IconButton size='medium'>
+              <HighlightOffIcon fontSize='large' color='primary' />
+            </IconButton>
+          </Tooltip>
         </CardActions>
       </Box>
     </Card>

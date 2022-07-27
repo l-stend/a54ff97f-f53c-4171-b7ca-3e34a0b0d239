@@ -10,6 +10,7 @@ import Typography from '@mui/material/Typography';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
 
 const CartDrawer = () => {
   const { isDrawerOpen } = useSelector((store) => store.cartDrawer);
@@ -21,18 +22,35 @@ const CartDrawer = () => {
       open={isDrawerOpen}
       sx={{ width: '50vw' }}
       item
-      // xs={{ width: '100vw' }}
-      // md={{ width: '50vw' }}
-      // lg={{ width: '30vw' }}
       anchor='right'
       onClose={dispatch(toggleDrawer)}
-      // sx={{ backgroundColor: 'background.paper' }}
-      // onOpen={dispatch(toggleDrawer)}
     >
-      <IconButton onClick={() => dispatch(toggleDrawer())}>
-        <ArrowForwardIcon />
-      </IconButton>
-      <Typography>Cart</Typography>
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          alignItems: 'baseline',
+          marginBottom: '2vh',
+          paddingTop: '1vh',
+        }}
+      >
+        <Typography color='primary' variant='h6' component='h3'>
+          YOUR CART
+        </Typography>
+        <Tooltip title='Close cart ' placement='left' arrow>
+          <IconButton
+            onClick={() => dispatch(toggleDrawer())}
+            sx={{
+              border: '1px solid',
+              borderColor: 'primary.main',
+              borderRadius: '50%',
+            }}
+          >
+            <ArrowForwardIcon color='primary' fontSize='small' />
+          </IconButton>
+        </Tooltip>
+      </Box>
       <Box>
         {cartItems.map((event) => (
           <CartCard event={event} />
@@ -46,7 +64,7 @@ const CartDrawer = () => {
           justifyContent: 'center',
         }}
       >
-        <Button size='small' variant='outlined'>
+        <Button size='small' variant='outlined' sx={{ border: 'solid 2px' }}>
           Clear Cart
         </Button>
       </Box>
