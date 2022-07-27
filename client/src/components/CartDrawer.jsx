@@ -4,10 +4,8 @@ import { toggleDrawer } from '../features/cart/cartDrawerSlice';
 import { clearCart } from '../features/cart/cartSlice';
 import { restoreList } from '../features/all-events/allEventsSlice';
 import CartCard from './CartCard';
-import SwipeableDrawer from '@mui/material/SwipeableDrawer';
 import Drawer from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import IconButton from '@mui/material/IconButton';
@@ -33,6 +31,7 @@ const CartDrawer = () => {
       anchor='right'
       onClose={dispatch(toggleDrawer)}
     >
+      {/* ////////// HEADER ///////// */}
       <Box
         sx={{
           display: 'flex',
@@ -59,6 +58,7 @@ const CartDrawer = () => {
           </IconButton>
         </Tooltip>
       </Box>
+      {/* ////////// CART ITEMS ///////// */}
       <Box>
         {cartItems.map((event) => (
           <CartCard key={event._id} event={event} />
@@ -72,6 +72,7 @@ const CartDrawer = () => {
           justifyContent: 'center',
         }}
       >
+        {/* ////////// CLEAR CART BUTTON ///////// */}
         <Button
           onClick={() => handleClearCart()}
           size='small'

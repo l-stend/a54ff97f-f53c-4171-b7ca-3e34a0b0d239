@@ -1,18 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import moment from 'moment';
 import EventCard from './EventCard';
-import List from '@mui/material/List';
 import ListSubheader from '@mui/material/ListSubheader';
 import Collapse from '@mui/material/Collapse';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemButton from '@mui/material/ListItemButton';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import ListItem from '@mui/material/ListItem';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 
 const DayHeader = ({ day, subHeaders, eventsList }) => {
@@ -20,6 +16,7 @@ const DayHeader = ({ day, subHeaders, eventsList }) => {
 
   return (
     <Box>
+      {/* ////////// SUB HEADER ///////// */}
       <ListSubheader
         disableSticky={false}
         sx={{
@@ -44,6 +41,7 @@ const DayHeader = ({ day, subHeaders, eventsList }) => {
           {isOpen ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
       </ListSubheader>
+      {/* ////////// EVENT CARD'S COLLAPSE ///////// */}
       <Collapse in={isOpen} timeout='auto' unmountOnExit>
         <Container sx={{ width: '95vw' }}>
           <Grid container spacing={2}>

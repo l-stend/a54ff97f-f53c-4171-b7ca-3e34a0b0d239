@@ -37,10 +37,10 @@ const CartCard = ({ event }) => {
         backgroundColor: 'background.default',
       }}
     >
+      {/* ////////// IMAGE ///////// */}
       <CardMedia
         component='img'
         height='100%'
-        // maxWidth='10vw'
         image={event.flyerFront}
         alt='Poster of the event'
         sx={{ flex: '3', maxWidth: '10vw' }}
@@ -55,11 +55,13 @@ const CartCard = ({ event }) => {
           flex: '4',
         }}
       >
+        {/* ////////// TITLE ///////// */}
         <Box sx={{ minHeight: '50%', paddingBottom: 'inherit' }}>
           <Typography variant='button-text' component='h5'>
             {event.title}
           </Typography>
         </Box>
+        {/* ////////// INFO ///////// */}
         <Box
           sx={{
             display: 'flex',
@@ -72,10 +74,6 @@ const CartCard = ({ event }) => {
             underline='hover'
             sx={{
               fontSize: '12px',
-              // width: '40%',
-              // textOverflow: 'ellipsis',
-              // overflow: 'hidden',
-              // whiteSpace: 'nowrap',
             }}
           >
             <Typography
@@ -97,7 +95,7 @@ const CartCard = ({ event }) => {
           </Typography>
         </Box>
       </CardContent>
-
+      {/* ////////// REMOVE BUTTON ///////// */}
       <Box sx={{ flex: '1' }}>
         <CardActions>
           <Tooltip title='Remove from cart' placement='bottom' arrow>
