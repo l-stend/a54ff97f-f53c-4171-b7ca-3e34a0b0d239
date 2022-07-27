@@ -23,7 +23,6 @@ const EventsContainer = () => {
 
   useEffect(() => {
     setSubHeaders(_(eventsList).map('date').uniq().value());
-    console.log(subHeaders);
   }, [eventsList]);
 
   const addToCartHandler = (item) => {

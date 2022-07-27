@@ -1,5 +1,8 @@
 import React from 'react';
 import moment from 'moment';
+import { useDispatch } from 'react-redux';
+import { putBackToList } from '../features/all-events/allEventsSlice';
+import { removeFromCart } from '../features/cart/cartSlice';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -14,6 +17,13 @@ import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import Tooltip from '@mui/material/Tooltip';
 
 const CartCard = ({ event }) => {
+  const dispatch = useDispatch();
+
+  const handleRemoveItem = (item) => {
+    dispatch(putBackToList(item));
+    dispatch(removeFromCart(item._id));
+  };
+
   return (
     <Card
       sx={{
@@ -83,7 +93,7 @@ const CartCard = ({ event }) => {
             sx={{ fontSize: '12px' }}
           >
             <AccessTimeFilledIcon fontSize='small' sx={{ height: '12px' }} />{' '}
-            {moment(event.startTime).format('LT')}
+            {moment(event.startTime).format('LLL')}
           </Typography>
         </Box>
       </CardContent>
@@ -91,7 +101,7 @@ const CartCard = ({ event }) => {
       <Box sx={{ flex: '1' }}>
         <CardActions>
           <Tooltip title='Remove from cart' placement='bottom' arrow>
-            <IconButton size='medium'>
+            <IconButton size='medium' onClick={() => handleRemoveItem(event)}>
               <HighlightOffIcon fontSize='large' color='primary' />
             </IconButton>
           </Tooltip>

@@ -31,6 +31,12 @@ const allEventsSlice = createSlice({
         (item) => item._id !== payload
       );
     },
+    putBackToList: (state, { payload }) => {
+      state.eventsList.push(payload);
+      state.eventsList.sort(
+        (a, b) => moment(a.startTime) - moment(b.startTime)
+      );
+    },
     filterList: (state, { payload }) => {
       state.eventsList = state.backUpList;
       state.eventsList = state.eventsList.filter((item) =>
@@ -59,7 +65,7 @@ const allEventsSlice = createSlice({
   },
 });
 
-export const { removeFromList, filterList, restoreList } =
+export const { removeFromList, filterList, restoreList, putBackToList } =
   allEventsSlice.actions;
 
 export default allEventsSlice.reducer;

@@ -61,7 +61,7 @@ const CartDrawer = () => {
       </Box>
       <Box>
         {cartItems.map((event) => (
-          <CartCard event={event} />
+          <CartCard key={event._id} event={event} />
         ))}
       </Box>
 

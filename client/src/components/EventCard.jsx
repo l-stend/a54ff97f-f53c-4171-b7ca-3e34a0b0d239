@@ -29,7 +29,6 @@ const EventCard = ({ event }) => {
   const addToCartHandler = (item) => {
     dispatch(addToCart(item));
     dispatch(removeFromList(item._id));
-    console.log('aljfglaf');
   };
 
   return (
