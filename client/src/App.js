@@ -8,8 +8,10 @@ import { ThemeProvider } from '@mui/material';
 import { CssBaseline } from '@mui/material/';
 import { darkTheme, lightTheme } from './utils/themes';
 import Box from '@mui/material/Box';
+import LoadingSpinner from './components/LoadingSpinner';
 
 function App() {
+  const { isLoading } = useSelector((store) => store.allEvents);
   const { darkMode } = useSelector((store) => store.theme);
   const dispatch = useDispatch();
 
@@ -19,10 +21,11 @@ function App() {
       <CssBaseline />
       <Box>
         <Navbar />
+        {isLoading && <LoadingSpinner />}
         <EventsContainer />
         <ToastContainer
           position='bottom-center'
-          autoClose={3000}
+          autoClose={2000}
           hideProgressBar={false}
           newestOnTop
           closeOnClick
