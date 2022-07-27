@@ -9,6 +9,7 @@ import { toggleDrawer } from '../features/cart/cartDrawerSlice';
 import Typography from '@mui/material/Typography';
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import IconButton from '@mui/material/IconButton';
+import Button from '@mui/material/Button';
 
 const CartDrawer = () => {
   const { isDrawerOpen } = useSelector((store) => store.cartDrawer);
@@ -32,11 +33,23 @@ const CartDrawer = () => {
         <ArrowForwardIcon />
       </IconButton>
       <Typography>Cart</Typography>
-      <Paper>
+      <Box>
         {cartItems.map((event) => (
           <CartCard event={event} />
         ))}
-      </Paper>
+      </Box>
+
+      <Box
+        sx={{
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'center',
+        }}
+      >
+        <Button size='small' variant='outlined'>
+          Clear Cart
+        </Button>
+      </Box>
     </Drawer>
   );
 };

@@ -4,12 +4,13 @@ import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import FmdGoodIcon from '@mui/icons-material/FmdGoodOutlined';
 import Link from '@mui/material/Link';
 import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
+import IconButton from '@mui/material/IconButton';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 const CartCard = ({ event }) => {
   return (
@@ -21,6 +22,7 @@ const CartCard = ({ event }) => {
         height: '20vh',
         width: '38vw',
         marginY: '1.5vh',
+        marginX: '.5vw',
       }}
     >
       <CardMedia
@@ -86,7 +88,9 @@ const CartCard = ({ event }) => {
 
       <Box sx={{ flex: '1' }}>
         <CardActions>
-          <Button size='small'>Share</Button>
+          <IconButton size='medium'>
+            <HighlightOffIcon fontSize='large' color='primary' />
+          </IconButton>
         </CardActions>
       </Box>
     </Card>
