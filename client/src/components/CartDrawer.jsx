@@ -19,6 +19,10 @@ const CartDrawer = () => {
     <Drawer
       open={isDrawerOpen}
       sx={{ width: '50vw' }}
+      item
+      // xs={{ width: '100vw' }}
+      // md={{ width: '50vw' }}
+      // lg={{ width: '30vw' }}
       anchor='right'
       onClose={dispatch(toggleDrawer)}
       // sx={{ backgroundColor: 'background.paper' }}

@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 import Card from '@mui/material/Card';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
@@ -6,6 +7,9 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import FmdGoodIcon from '@mui/icons-material/FmdGoodOutlined';
+import Link from '@mui/material/Link';
+import AccessTimeFilledIcon from '@mui/icons-material/AccessTimeFilled';
 
 const CartCard = ({ event }) => {
   return (
@@ -16,37 +20,75 @@ const CartCard = ({ event }) => {
         alignItems: 'center',
         height: '20vh',
         width: '38vw',
+        marginY: '1.5vh',
       }}
     >
       <CardMedia
         component='img'
         height='100%'
-        width='18vw'
+        // maxWidth='10vw'
         image={event.flyerFront}
         alt='Poster of the event'
-        sx
+        sx={{ flex: '3', maxWidth: '10vw' }}
       />
-      <Box
+
+      <CardContent
         sx={{
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'center',
+          marginY: '1vh',
+          flex: '4',
         }}
       >
-        <CardContent>
-          <Typography gutterBottom variant='h5' component='div'>
+        <Box sx={{ minHeight: '50%', paddingBottom: 'inherit' }}>
+          <Typography variant='button-text' component='h5'>
             {event.title}
           </Typography>
-          <Typography variant='body2' color='text.secondary'>
-            Lizards are a widespread group of squamate reptiles, with over 6,000
-            species, ranging across all continents except Antarctica
+        </Box>
+        <Box
+          sx={{
+            display: 'flex',
+            flexDirection: 'column',
+            paddingTop: 'inherit',
+          }}
+        >
+          <Link
+            href={event.venue.direction}
+            underline='hover'
+            sx={{
+              fontSize: '12px',
+              // width: '40%',
+              // textOverflow: 'ellipsis',
+              // overflow: 'hidden',
+              // whiteSpace: 'nowrap',
+            }}
+          >
+            <Typography
+              component='subtitle2'
+              variant='caption'
+              sx={{ marginBottom: '1vh' }}
+            >
+              <FmdGoodIcon fontSize='small' sx={{ height: '12px' }} />{' '}
+              {event.venue.name}
+            </Typography>
+          </Link>
+          <Typography
+            component='subtitle2'
+            variant='caption'
+            sx={{ fontSize: '12px' }}
+          >
+            <AccessTimeFilledIcon fontSize='small' sx={{ height: '12px' }} />{' '}
+            {moment(event.startTime).format('LT')}
           </Typography>
-        </CardContent>
+        </Box>
+      </CardContent>
+
+      <Box sx={{ flex: '1' }}>
+        <CardActions>
+          <Button size='small'>Share</Button>
+        </CardActions>
       </Box>
-      <CardActions>
-        <Button size='small'>Share</Button>
-        <Button size='small'>Learn More</Button>
-      </CardActions>
     </Card>
   );
 };
