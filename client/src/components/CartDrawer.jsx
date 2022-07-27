@@ -11,6 +11,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
+import Divider from '@mui/material/Divider';
 
 const CartDrawer = () => {
   const { isDrawerOpen } = useSelector((store) => store.cartDrawer);
@@ -64,15 +65,16 @@ const CartDrawer = () => {
           <CartCard key={event._id} event={event} />
         ))}
       </Box>
-
+      <Divider />
+      {/* ////////// CLEAR CART BUTTON ///////// */}
       <Box
         sx={{
           display: 'flex',
           flexDirection: 'row',
           justifyContent: 'center',
+          marginTop: '1.5vh',
         }}
       >
-        {/* ////////// CLEAR CART BUTTON ///////// */}
         <Button
           onClick={() => handleClearCart()}
           size='small'
