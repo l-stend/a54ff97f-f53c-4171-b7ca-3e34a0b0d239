@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { switchTheme } from '../features/theme/themeSlice';
 import { toggleDrawer } from '../features/cart/cartDrawerSlice';
@@ -7,7 +7,6 @@ import AppBar from '@mui/material/AppBar';
 import TextField from '@mui/material/TextField';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
 import WbSunnyOutlinedIcon from '@mui/icons-material/WbSunnyOutlined';
 import Brightness2OutlinedIcon from '@mui/icons-material/Brightness2Outlined';
 import Autocomplete from '@mui/material/Autocomplete';
@@ -18,7 +17,6 @@ const Navbar = () => {
   const { darkMode } = useSelector((store) => store.theme);
   const { eventsList } = useSelector((store) => store.allEvents);
   const { cartItems } = useSelector((store) => store.cart);
-  const [isDrawerOpen, setIsDrawerOpen] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -109,7 +107,7 @@ const Navbar = () => {
                 }
           }
         >
-          <ShoppingCartCheckoutIcon />
+          {<ShoppingCartCheckoutIcon />}
         </IconButton>
       </Badge>
     </AppBar>
