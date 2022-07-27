@@ -1,5 +1,6 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { useStyles } from '../utils/classes';
 import { switchTheme } from '../features/theme/themeSlice';
 import { toggleDrawer } from '../features/cart/cartDrawerSlice';
 import { filterList } from '../features/all-events/allEventsSlice';
@@ -17,6 +18,7 @@ const Navbar = () => {
   const { darkMode } = useSelector((store) => store.theme);
   const { eventsList } = useSelector((store) => store.allEvents);
   const { cartItems } = useSelector((store) => store.cart);
+  const classes = useStyles();
 
   const dispatch = useDispatch();
 
@@ -46,6 +48,7 @@ const Navbar = () => {
       {/* //////// THEME BUTTON //////// */}
       <IconButton
         onClick={() => dispatch(switchTheme())}
+        className={classes.navButton}
         sx={
           darkMode
             ? {
@@ -89,6 +92,7 @@ const Navbar = () => {
       <Badge color='primary' overlap='circular' badgeContent={cartItems.length}>
         <IconButton
           onClick={() => dispatch(toggleDrawer())}
+          className={classes.navButton}
           sx={
             darkMode
               ? {

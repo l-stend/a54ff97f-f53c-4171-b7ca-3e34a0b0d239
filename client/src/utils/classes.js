@@ -21,4 +21,18 @@ export const useStyles = makeStyles((theme) => ({
       flex: '3',
     },
   },
+
+  navButton: {
+    width: '3vw',
+    [theme.breakpoints.only('xs')]: {
+      width: '11vw',
+    },
+  },
+
+  participantsBadge: {
+    width: '4vw',
+    [theme.breakpoints.only('xs')]: {
+      width: '15vw',
+    },
+  },
 }));

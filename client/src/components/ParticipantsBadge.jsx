@@ -1,8 +1,11 @@
 import React from 'react';
+import { useStyles } from '../utils/classes';
 import Chip from '@mui/material/Chip';
 import Tooltip from '@mui/material/Tooltip';
 
 const ParticipantsBadge = ({ attending }) => {
+  const classes = useStyles();
+
   const calculateBadgeContent = (participants) => {
     if (participants >= 100 && participants < 500) return '100+';
     if (participants >= 500 && participants < 1000) return '500+';
@@ -19,6 +22,7 @@ const ParticipantsBadge = ({ attending }) => {
           arrow
         >
           <Chip
+            className={classes.participantsBadge}
             label={calculateBadgeContent(attending)}
             color='primary'
             size='small'
@@ -27,6 +31,7 @@ const ParticipantsBadge = ({ attending }) => {
         </Tooltip>
       ) : (
         <Chip
+          className={classes.participantsBadge}
           label={calculateBadgeContent(attending)}
           color='primary'
           variant='outlined'
