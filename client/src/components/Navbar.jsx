@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { switchTheme } from '../features/theme/themeSlice';
+import { toggleDrawer } from '../features/cart/cartDrawerSlice';
 import { filterList } from '../features/all-events/allEventsSlice';
 import AppBar from '@mui/material/AppBar';
 import TextField from '@mui/material/TextField';
@@ -12,7 +13,6 @@ import Brightness2OutlinedIcon from '@mui/icons-material/Brightness2Outlined';
 import Autocomplete from '@mui/material/Autocomplete';
 import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
 import Badge from '@mui/material/Badge';
-import CartDrawer from './CartDrawer';
 
 const Navbar = () => {
   const { darkMode } = useSelector((store) => store.theme);
@@ -90,7 +90,7 @@ const Navbar = () => {
       {/* //////// CART BUTTON //////// */}
       <Badge color='primary' overlap='circular' badgeContent={cartItems.length}>
         <IconButton
-          onClick={() => dispatch(switchTheme())}
+          onClick={() => dispatch(toggleDrawer())}
           sx={
             darkMode
               ? {
@@ -112,7 +112,6 @@ const Navbar = () => {
           <ShoppingCartCheckoutIcon />
         </IconButton>
       </Badge>
-      <CartDrawer />
     </AppBar>
   );
 };

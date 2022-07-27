@@ -23,6 +23,10 @@
  🔴 i bottoni della navbar cambiano forma su schermo mobile
   
  🔴 cancella logica inutile badge partecipanti 
+ 
+ 🔴 aggiungi tooltips a navbar
+
+ 🔴 se il dayheader e vuoto fallo sparire
   
  
 

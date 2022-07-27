@@ -13,6 +13,7 @@ import { CssBaseline } from '@mui/material/';
 import Paper from '@mui/material/Paper';
 import { darkTheme, lightTheme } from './utils/themes';
 import Box from '@mui/material/Box';
+import { CartDrawer } from './components';
 
 function App() {
   const { darkMode } = useSelector((store) => store.theme);
@@ -37,6 +38,7 @@ function App() {
           pauseOnHover
           theme='dark'
         />
+        <CartDrawer />
       </Box>
     </ThemeProvider>
   );
