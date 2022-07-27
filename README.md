@@ -6,6 +6,6 @@
 display="flex"
 flex-direction="row">
     <img src="./client/src/assets/Senzanome3.png" alt="Logo" width="1300" height="500">
-    <img src="./client/src/assets/Senzanome.png" alt="Logo" width="200" height="550">
-    <img src="./client/src/assets/Senzanome2.png" alt="Logo" width="200" height="550">
+    <img src="./client/src/assets/Senzanome.png" alt="Logo" width="200" height="500">
+    <img src="./client/src/assets/Senzanome2.png" alt="Logo" width="200" height="500">
 </div>
