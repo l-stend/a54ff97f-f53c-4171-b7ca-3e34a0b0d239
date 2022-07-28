@@ -14,7 +14,6 @@ export const getAllEvents = createAsyncThunk(
   async (_, thunkAPI) => {
     try {
       const res = await customFetch.get();
-      console.log(res.data);
       return res.data;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.msg);

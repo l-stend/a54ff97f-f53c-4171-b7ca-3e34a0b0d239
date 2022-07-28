@@ -117,15 +117,17 @@ const EventCard = ({ event }) => {
           sx={{
             fontSize: '12px',
             width: '40%',
-            textOverflow: 'ellipsis',
-            overflow: 'hidden',
-            whiteSpace: 'nowrap',
           }}
         >
           <Typography
             id='event-card-link'
-            component='subtitle2'
+            component='h6'
             variant='caption'
+            sx={{
+              textOverflow: 'ellipsis',
+              overflow: 'hidden',
+              whiteSpace: 'nowrap',
+            }}
           >
             <FmdGoodIcon fontSize='small' sx={{ height: '12px' }} />{' '}
             {event.venue.name}

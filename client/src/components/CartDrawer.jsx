@@ -25,13 +25,7 @@ const CartDrawer = () => {
   };
 
   return (
-    <Drawer
-      open={isDrawerOpen}
-      sx={{ width: '50vw' }}
-      item
-      anchor='right'
-      onClose={dispatch(toggleDrawer)}
-    >
+    <Drawer open={isDrawerOpen} sx={{ width: '50vw' }} anchor='right'>
       {/* ////////// HEADER ///////// */}
       <Box
         id='drawer-header'
