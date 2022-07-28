@@ -1,6 +1,6 @@
-## Techlead Frontend Assignment
+## Teclead Ventures Frontend Assignment
 
-Implemented by Luca Stendardo
+Implemented by [Luca Stendardo](https://www.linkedin.com/in/luca-stendardo/?locale=en_US)
 
 ## Description
 
