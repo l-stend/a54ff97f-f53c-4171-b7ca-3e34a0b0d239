@@ -1,4 +1,4 @@
-# Teclead Ventures Frontend Assignment
+# Techlead Frontend Assignment
 
 Implemented by [Luca Stendardo](https://www.linkedin.com/in/luca-stendardo/?locale=en_US)
 
@@ -23,15 +23,9 @@ Here's a little preview
 <div 
 display="flex"
 flex-direction="row">
-<div>
-    <img src="./client/src/assets/Senzanome3.png" alt="Logo" width="680" height="350">
-</div>
-<div>
-    <img src="./client/src/assets/Senzanome.png" alt="Logo" width="130" height="350">
-</div>
-<div>
-    <img src="./client/src/assets/Senzanome2.png" alt="Logo" width="130" height="350">
-</div>
+    <img src="./client/src/assets/Senzanome3.png" alt="Logo" width="1300" height="500">
+    <img src="./client/src/assets/Senzanome.png" alt="Logo" width="200" height="500">
+    <img src="./client/src/assets/Senzanome2.png" alt="Logo" width="200" height="500">
 </div>
 
 ## Run locally
