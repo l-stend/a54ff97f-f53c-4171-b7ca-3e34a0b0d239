@@ -23,9 +23,15 @@ Here's a little preview
 <div 
 display="flex"
 flex-direction="row">
-    <img src="./client/src/assets/Senzanome3.png" alt="Logo" width="800" height="350">
+<div>
+    <img src="./client/src/assets/Senzanome3.png" alt="Logo" width="680" height="350">
+</div>
+<div>
     <img src="./client/src/assets/Senzanome.png" alt="Logo" width="130" height="350">
+</div>
+<div>
     <img src="./client/src/assets/Senzanome2.png" alt="Logo" width="130" height="350">
+</div>
 </div>
 
 ## Run locally
