@@ -58,13 +58,17 @@ const CartCard = ({ event }) => {
         }}
       >
         {/* ////////// TITLE ///////// */}
-        <Box sx={{ minHeight: '50%', paddingBottom: 'inherit' }}>
+        <Box
+          id='cart-card-title'
+          sx={{ minHeight: '50%', paddingBottom: 'inherit' }}
+        >
           <Typography variant='button-text' component='h5'>
             {event.title}
           </Typography>
         </Box>
         {/* ////////// INFO ///////// */}
         <Box
+          id='cart-card-info-wrapper'
           sx={{
             display: 'flex',
             flexDirection: 'column',
@@ -79,6 +83,7 @@ const CartCard = ({ event }) => {
             }}
           >
             <Typography
+              id='cart-card-link'
               component='subtitle2'
               variant='caption'
               sx={{ marginBottom: '1vh' }}
@@ -88,6 +93,7 @@ const CartCard = ({ event }) => {
             </Typography>
           </Link>
           <Typography
+            id='cart-card-time'
             component='subtitle2'
             variant='caption'
             sx={{ fontSize: '12px' }}
@@ -98,7 +104,7 @@ const CartCard = ({ event }) => {
         </Box>
       </CardContent>
       {/* ////////// REMOVE BUTTON ///////// */}
-      <Box sx={{ flex: '1' }}>
+      <Box id='cart-card-button' sx={{ flex: '1' }}>
         <CardActions>
           <Tooltip title='Remove from cart' placement='bottom' arrow>
             <IconButton size='medium' onClick={() => handleRemoveItem(event)}>

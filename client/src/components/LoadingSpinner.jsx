@@ -7,6 +7,7 @@ const LoadingSpinner = () => {
   const { darkMode } = useSelector((store) => store.theme);
   return (
     <Box
+      id='spinner-wrapper'
       style={{
         marginTop: '40vh',
         display: 'flex',

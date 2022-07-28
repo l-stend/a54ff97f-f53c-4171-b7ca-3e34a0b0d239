@@ -34,6 +34,7 @@ const CartDrawer = () => {
     >
       {/* ////////// HEADER ///////// */}
       <Box
+        id='drawer-header'
         sx={{
           display: 'flex',
           flexDirection: 'row',
@@ -43,11 +44,17 @@ const CartDrawer = () => {
           paddingTop: '1vh',
         }}
       >
-        <Typography color='primary' variant='h6' component='h3'>
+        <Typography
+          id='drawer-title'
+          color='primary'
+          variant='h6'
+          component='h3'
+        >
           YOUR CART
         </Typography>
         <Tooltip title='Close cart ' placement='left' arrow>
           <IconButton
+            id='drawer-close-button'
             onClick={() => dispatch(toggleDrawer())}
             sx={{
               border: '1px solid',
@@ -60,14 +67,15 @@ const CartDrawer = () => {
         </Tooltip>
       </Box>
       {/* ////////// CART ITEMS ///////// */}
-      <Box>
+      <Box id='cart-items-list'>
         {cartItems.map((event) => (
-          <CartCard key={event._id} event={event} />
+          <CartCard id='cart-item-cart' key={event._id} event={event} />
         ))}
       </Box>
       <Divider />
       {/* ////////// CLEAR CART BUTTON ///////// */}
       <Box
+        id='drawer-clear-button-wrapper'
         sx={{
           display: 'flex',
           flexDirection: 'row',
@@ -76,6 +84,7 @@ const CartDrawer = () => {
         }}
       >
         <Button
+          id='drawer-clear-button'
           onClick={() => handleClearCart()}
           size='small'
           variant='outlined'

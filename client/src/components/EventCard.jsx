@@ -3,7 +3,6 @@ import moment from 'moment';
 import { useDispatch } from 'react-redux';
 import { addToCart } from '../features/cart/cartSlice';
 import { removeFromList } from '../features/all-events/allEventsSlice';
-import EventsContainer from './EventsContainer';
 import ParticipantsBadge from './ParticipantsBadge';
 import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
@@ -33,6 +32,7 @@ const EventCard = ({ event }) => {
 
   return (
     <Paper
+      id='event-card-wrapper'
       elevation={10}
       sx={{
         display: 'flex',
@@ -43,6 +43,7 @@ const EventCard = ({ event }) => {
     >
       {/*//////// UPPER PART /////////////*/}
       <Box
+        id='event-card-upper-section'
         sx={{
           display: 'flex',
           flexDirection: 'row',
@@ -55,6 +56,7 @@ const EventCard = ({ event }) => {
         <ParticipantsBadge attending={event.attending} />
         <Tooltip title='Add to cart' placement='left' arrow>
           <Button
+            id='add-to-cart-button'
             sx={{ borderRadius: '25px', height: '3vh', width: '4vw' }}
             variant='outlined'
             size='small'
@@ -82,6 +84,7 @@ const EventCard = ({ event }) => {
       />
       {/*//////// TITLE /////////////*/}
       <Box
+        id='event-card-title-wrapper'
         sx={{
           width: '90%',
           height: '8vh',
@@ -92,13 +95,14 @@ const EventCard = ({ event }) => {
           alignItems: 'baseline',
         }}
       >
-        <Typography variant='button-text' component='h5'>
+        <Typography id='event-card-title' variant='button-text' component='h5'>
           {event.title}
         </Typography>
       </Box>
       <Divider sx={{ marginX: '.5em' }} />
       {/*//////// INFO /////////////*/}
       <Box
+        id='event-card-info-wrapper'
         sx={{
           display: 'flex',
           flexDirection: 'row',
@@ -118,12 +122,17 @@ const EventCard = ({ event }) => {
             whiteSpace: 'nowrap',
           }}
         >
-          <Typography component='subtitle2' variant='caption'>
+          <Typography
+            id='event-card-link'
+            component='subtitle2'
+            variant='caption'
+          >
             <FmdGoodIcon fontSize='small' sx={{ height: '12px' }} />{' '}
             {event.venue.name}
           </Typography>
         </Link>
         <Typography
+          id='event-card-time'
           component='subtitle2'
           variant='caption'
           sx={{ fontSize: '12px' }}
@@ -134,6 +143,7 @@ const EventCard = ({ event }) => {
       </Box>
       {/*//////// COLLAPSE /////////////*/}
       <Box
+        id='event-card-artists-wrapper'
         sx={{
           display: 'flex',
           flexDirection: 'row',
@@ -150,8 +160,14 @@ const EventCard = ({ event }) => {
           </Tooltip>
         )}
       </Box>
-      <Collapse in={isExpanded} timeout='auto' unmountOnExit>
+      <Collapse
+        id='event-card-artists-collapse'
+        in={isExpanded}
+        timeout='auto'
+        unmountOnExit
+      >
         <Box
+          id='event-card-collapse-wrapper'
           sx={{
             paddingX: '1em',
             display: 'flex',
@@ -160,17 +176,25 @@ const EventCard = ({ event }) => {
             alignItems: 'center',
           }}
         >
-          <List subheader={<ListSubheader>Artists</ListSubheader>}>
+          <List
+            id='event-card-artists-list'
+            subheader={<ListSubheader>Artists</ListSubheader>}
+          >
             {event.artists.length === 0
               ? 'No list available'
               : event.artists.map((artist) => (
-                  <ListItem key={artist.id} sx={{ fontSize: '15px' }}>
+                  <ListItem
+                    id='event-card-artists-item'
+                    key={artist.id}
+                    sx={{ fontSize: '15px' }}
+                  >
                     {artist.name}
                   </ListItem>
                 ))}
           </List>
         </Box>
         <Box
+          id='event-card-close-collapse-button-wrapper'
           sx={{
             display: 'flex',
             flexDirection: 'row',

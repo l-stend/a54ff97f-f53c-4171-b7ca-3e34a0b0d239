@@ -15,9 +15,10 @@ const DayHeader = ({ day, subHeaders, eventsList }) => {
   const [isOpen, setIsOpen] = useState(true);
 
   return (
-    <Box>
+    <Box id='list-day-section-wrapper'>
       {/* ////////// SUB HEADER ///////// */}
       <ListSubheader
+        id='list-day-subheader'
         disableSticky={false}
         sx={{
           paddingTop: '5vh',
@@ -26,6 +27,7 @@ const DayHeader = ({ day, subHeaders, eventsList }) => {
         }}
       >
         <ListItemButton
+          id='subheader-show-events-button'
           onClick={() => setIsOpen(!isOpen)}
           sx={{
             marginY: '1em',
@@ -37,13 +39,21 @@ const DayHeader = ({ day, subHeaders, eventsList }) => {
             paddingY: '2vh',
           }}
         >
-          <ListItemText primary={moment(day).format('ddd MMMM Do')} />
+          <ListItemText
+            id='subheader-title'
+            primary={moment(day).format('ddd MMMM Do')}
+          />
           {isOpen ? <ExpandLess /> : <ExpandMore />}
         </ListItemButton>
       </ListSubheader>
       {/* ////////// EVENT CARD'S COLLAPSE ///////// */}
-      <Collapse in={isOpen} timeout='auto' unmountOnExit>
-        <Container sx={{ width: '95vw' }}>
+      <Collapse
+        id='collapse-day-events'
+        in={isOpen}
+        timeout='auto'
+        unmountOnExit
+      >
+        <Container id='day-events-wrapper' sx={{ width: '95vw' }}>
           <Grid container spacing={2}>
             {eventsList
               .filter((event) => event.date === day)

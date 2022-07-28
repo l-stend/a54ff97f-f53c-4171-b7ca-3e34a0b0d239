@@ -47,6 +47,7 @@ const Navbar = () => {
     >
       {/* //////// THEME BUTTON //////// */}
       <IconButton
+        id='navbar-theme-button'
         onClick={() => dispatch(switchTheme())}
         className={classes.navButton}
         sx={
@@ -75,6 +76,7 @@ const Navbar = () => {
       </IconButton>
       {/* //////// SEARCH BAR //////// */}
       <Autocomplete
+        id='navbar-search-bar'
         sx={{ width: '40vw' }}
         renderInput={(params) => (
           <TextField {...params} label='Search your event' />
@@ -89,8 +91,14 @@ const Navbar = () => {
         onInputChange={(e) => dispatch(filterList(e.target.value))}
       />
       {/* //////// CART BUTTON //////// */}
-      <Badge color='primary' overlap='circular' badgeContent={cartItems.length}>
+      <Badge
+        id='navbar-cart-button-badge'
+        color='primary'
+        overlap='circular'
+        badgeContent={cartItems.length}
+      >
         <IconButton
+          id='navbar-cart-button'
           onClick={() => dispatch(toggleDrawer())}
           className={classes.navButton}
           sx={
