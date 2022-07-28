@@ -1,4 +1,4 @@
-# Techlead Frontend Assignment
+# Teclead Frontend Assignment
 
 Implemented by [Luca Stendardo](https://www.linkedin.com/in/luca-stendardo/?locale=en_US)
 
