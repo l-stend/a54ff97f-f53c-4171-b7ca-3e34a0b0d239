@@ -26,7 +26,7 @@ const ParticipantsBadge = ({ attending }) => {
             label={calculateBadgeContent(attending)}
             color='primary'
             size='small'
-            sx={{ height: '3vh', width: '4vw' }}
+            sx={{ height: '3vh' }}
           />
         </Tooltip>
       ) : (

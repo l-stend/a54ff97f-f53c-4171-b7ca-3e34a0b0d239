@@ -57,14 +57,12 @@ const Navbar = () => {
                 border: 'solid 1px',
                 borderRadius: '100px',
                 borderColor: 'primary.main',
-                width: '3vw',
               }
             : {
                 color: '#ffffff',
                 border: 'solid 1px',
                 borderRadius: '100px',
                 borderColor: '#ffffff',
-                width: '3vw',
               }
         }
       >
@@ -108,14 +106,12 @@ const Navbar = () => {
                   border: 'solid 1px',
                   borderRadius: '100px',
                   borderColor: 'primary.main',
-                  width: '3vw',
                 }
               : {
                   color: '#ffffff',
                   border: 'solid 1px',
                   borderRadius: '100px',
                   borderColor: '#ffffff',
-                  width: '3vw',
                 }
           }
         >

@@ -25,7 +25,7 @@ export const useStyles = makeStyles((theme) => ({
   navButton: {
     width: '3vw',
     [theme.breakpoints.only('xs')]: {
-      width: '11vw',
+      width: '11.5vw',
     },
   },
 
