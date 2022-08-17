@@ -118,6 +118,7 @@ const EventCard = ({ event }) => {
             fontSize: '12px',
             width: '40%',
           }}
+          target='_blank'
         >
           <Typography
             id='event-card-link'
